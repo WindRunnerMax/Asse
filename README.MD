@@ -1,8 +1,10 @@
 # ASSE.JS
 **前端框架**
->个人比较常用的前端操作以及样式的封装，会不断维护  
->大量参考了 Layui Bootstrap 两款非常优秀的前端框架
-
+>演示地址：https://windrunnermax.github.io/Asse.js/Demo.html
+```
+比较常用的前端操作以及样式的封装，会不断维护添加功能  
+参考了 Layui Bootstrap 两款优秀的前端框架
+```
 ## Changelog
 
 ### 1.0.0 (2019-04-02) [beddbfe] 
