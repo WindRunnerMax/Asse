@@ -1,0 +1,159 @@
+@charset "utf-8";
+
+/**
+ * 按钮 hr fieldset 面板 弹出层 
+ */
+
+@keyframes shallow{
+from {opacity: 1;}
+to {opacity: 0.9;}
+}
+
+/**
+ * Button
+ * Color Size
+ */
+
+.asse-btn{
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 20px;
+	margin: 3px;
+	border:1px solid #eee;
+	border-radius: 3px;
+	text-align: center;
+	text-rendering: auto;
+	font-size: 14px;
+	cursor: pointer;
+	background: #009688;
+	color: #fff;
+	transition: all .3s;
+}
+
+.asse-btn:hover{
+	animation: shallow .3s;
+	opacity: 0.9;
+}
+
+.asse-btn-blue{
+	background: #1E9FFF;
+}
+
+.asse-btn-white{
+	background: #fff;
+	color: #000;
+}
+
+.asse-btn-yello{
+	background: #FFB800;
+}
+
+.asse-btn-orange{
+	background: #FF5722;
+}
+
+.asse-btn-disable{
+    background: #FBFBFB;
+    color: #C9C9C9;
+    cursor: not-allowed;
+}
+
+.asse-btn-large{
+	height: 40px;
+    line-height: 40px;
+    padding: 0 23px;
+    font-size: 16px;
+}
+
+.asse-btn-large{
+	height: 40px;
+    line-height: 40px;
+    padding: 0 23px;
+    font-size: 16px;
+}
+
+.asse-btn-small{
+	height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.asse-btn-mini{
+	height: 22px;
+    line-height: 22px;
+    padding: 0 5px;
+    font-size: 12px;
+}
+
+/**
+ * HR
+ */
+
+.asse-hr{
+	display: block;
+	padding:0 10px;
+	height: 1px;
+	background: #e3e3e3;
+	border:none;
+}
+
+/**
+ * Fieldset
+ */
+
+.asse-fieldset{
+	margin-top: 10px; 
+	border: 1px solid #aaa;
+}
+
+/**
+ * 面板
+ */
+
+@media screen and (max-width:600px) /* <=500 */
+{
+	.asse-panel{
+		margin: 5px;
+		padding: 3px;
+		width: calc(100% - 15px);
+	}
+
+	.asse-panel-left{
+		margin: 5px;
+		padding: 3px;
+		width: calc(100% - 15px);
+	}
+	.asse-panel-right{
+		margin: 5px;
+		padding: 3px;
+		width: calc(100% - 15px);
+	}
+}
+
+@media screen and (min-width:600px) /* >=500 */
+{
+	.asse-panel{
+		margin: 5px auto;
+		padding: 3px;
+		width: calc(70% - 15px); 
+	}
+
+	.asse-panel-left{
+		display: inline-block;
+		margin: 3px;
+		padding: 3px;
+		width: calc(50% - 15px);
+		background: #eee;
+	}
+
+	.asse-panel-right{
+		display: inline-block;
+		margin: 3px;
+		padding: 3px;
+		width: calc(50% - 15px);
+		background: #eee;
+	}
+
+}
