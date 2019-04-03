@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 </head>
 <link rel="stylesheet" type="text/css" href="./asse.css">
-<script type="text/javascript" src="./asse.js"></script>
+<script type="text/javascript" src="static/jquery-1.11.1.min.js"></script>
 <body>
 <fieldset class="asse-fieldset">
 	<legend>按钮</legend>
@@ -30,6 +30,13 @@
 	<hr class="asse-hr">
 	<div class="asse-panel" style="background: #eee;height: 60px;">单独面板</div>
 </fieldset>
-
+<div class="asse-msg-contain">
+	<span class="asse-icon-success"></span>
+	<span class="asse-msg-word">测试</span>
+</div>
 </body>
+<script type="text/javascript" src="./asse.js"></script>
+<script type="text/javascript">
+	asse.popup.msg();
+</script>
 </html>

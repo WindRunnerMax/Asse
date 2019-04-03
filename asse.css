@@ -1,9 +1,12 @@
 @charset "utf-8";
 
 /**
- * 按钮 hr fieldset 面板 弹出层 
+ * Function : 按钮 hr fieldset 面板 弹出层 
  */
 
+/**
+ * 动画
+ */
 @keyframes shallow{
 from {opacity: 1;}
 to {opacity: 0.9;}
@@ -20,7 +23,6 @@ to {opacity: 0.9;}
 	line-height: 36px;
 	padding: 0 20px;
 	margin: 3px;
-	border:1px solid #eee;
 	border-radius: 3px;
 	text-align: center;
 	text-rendering: auto;
@@ -41,8 +43,12 @@ to {opacity: 0.9;}
 }
 
 .asse-btn-white{
+	height: 34px;
+	line-height: 34px;
+	padding: 0 19px;
 	background: #fff;
 	color: #000;
+	border:1px solid #eee;
 }
 
 .asse-btn-yello{
@@ -57,13 +63,6 @@ to {opacity: 0.9;}
     background: #FBFBFB;
     color: #C9C9C9;
     cursor: not-allowed;
-}
-
-.asse-btn-large{
-	height: 40px;
-    line-height: 40px;
-    padding: 0 23px;
-    font-size: 16px;
 }
 
 .asse-btn-large{
@@ -112,7 +111,7 @@ to {opacity: 0.9;}
  * 面板
  */
 
-@media screen and (max-width:600px) /* <=500 */
+@media screen and (max-width:600px) /* <=600 */
 {
 	.asse-panel{
 		margin: 5px;
@@ -132,7 +131,7 @@ to {opacity: 0.9;}
 	}
 }
 
-@media screen and (min-width:600px) /* >=500 */
+@media screen and (min-width:600px) /* >=600 */
 {
 	.asse-panel{
 		margin: 5px auto;
@@ -156,4 +155,35 @@ to {opacity: 0.9;}
 		background: #eee;
 	}
 
+}
+
+/**
+ * 弹窗
+ */
+.asse-msg-contain{
+	background: #fff;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%,-50%);
+	z-index: 10086;
+	min-width: 200px;
+	height: 60px;
+	display: flex;
+}
+
+.asse-msg-word{
+	height: 60px;
+	line-height: 60px;
+	margin-right: 5px; 
+}
+
+.asse-icon-success {
+	margin: 5px 0 0 5px; 
+	height: 50px;
+	width: 60px;
+	background:url('./static/img/success.png') no-repeat;
+	background-size: 51px 50px;
 }
