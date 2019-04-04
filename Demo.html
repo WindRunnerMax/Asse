@@ -30,16 +30,46 @@
 	<hr class="asse-hr">
 	<div class="asse-panel" style="background: #eee;height: 60px;">单独面板</div>
 </fieldset>
-<div class="asse-msg-contain">
-	<span class="asse-icon-success"></span>
-	<span class="asse-msg-word">测试</span>
-</div>
+<fieldset class="asse-fieldset">
+	<legend>弹出层</legend>
+	<div class="asse-btn asse-btn-blue" onclick="sucPopup('测试SUC',1,false)">Success</div>
+	<div class="asse-btn asse-btn-blue" onclick="sucPopup('测试ERR 遮罩',2,true)">Error</div>
+	<div class="asse-btn asse-btn-blue" onclick="sucPopup('测试INF',3,false)">Info</div>
+	<div class="asse-btn asse-btn-blue" onclick="sucLoad()">Load</div>
+	<div class="asse-btn asse-btn-blue" onclick="dropLoad()">CloseLoad</div>
+	<div class="asse-btn asse-btn-blue" onclick="openHtml()">Html</div>
+</fieldset>
 </body>
 <script type="text/javascript" src="./asse.js"></script>
 <script type="text/javascript">
-	window.onload=()=>{
-		asse.popup.msg();
+	var msgIndex = "";
+	var sucPopup = (message,icon,bool) =>{
+		asse.popup.msg(message,{
+			icon: icon , //1.success 2.error 3.info
+			time : 2000, //0为不自动关闭，以毫秒为单位
+			shadeClose : true,
+			shade : bool,
+			end : () => {console.log("回调成功");} //弹窗结束后回掉函数
+		});
 	}
-	
+	var sucLoad = () =>{
+		msgIndex = asse.popup.load("请稍后",{
+			time : 0, //0为不自动关闭，以毫秒为单位
+			shadeClose : false,
+			shade : false,
+			end : () => {console.log("回调成功");} //弹窗结束后回掉函数
+		});
+	}
+	var dropLoad = () =>{
+		asse.popup.close(msgIndex)
+	}
+	var openHtml = () =>{
+		asse.popup.open("信息","<div>在这里可以写任何Html代码</div>",{
+			time : 0, //0为不自动关闭，以毫秒为单位
+			shadeClose : true,
+			shade : true,
+			end : () => {console.log("回调成功");} //弹窗结束后回掉函数
+		});
+	}
 </script>
 </html>
