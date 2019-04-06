@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /**
- * Function : 按钮 hr fieldset 面板 弹出层 
+ * Function : 按钮 hr fieldset 面板 弹出层 Table 
  */
 
 /**
@@ -88,7 +88,7 @@ to {opacity: 0.9;}
 }
 
 /**
- * HR
+ * 组件
  */
 
 .asse-hr{
@@ -99,14 +99,21 @@ to {opacity: 0.9;}
 	border:none;
 }
 
-/**
- * Fieldset
- */
-
 .asse-fieldset{
 	margin-top: 10px; 
 	border: 1px solid #aaa;
 }
+
+.asse-textarea{
+    border: 1px solid #eee;
+    width: calc(100% - 22px);
+    padding: 10px;
+    border-radius: 3px;
+    margin-top : 10px;
+    color: #aaa;
+  }
+
+
 
 /**
  * 面板
@@ -179,7 +186,6 @@ to {opacity: 0.9;}
 }
 
 .asse-msg-contain{
-	display: none;
 	background: #fff;
 	border: 1px solid #eee;
 	border-radius: 3px;
@@ -196,7 +202,6 @@ to {opacity: 0.9;}
 
 .asse-open-contain{
 	background: #fff;
-	border: 1px solid #eee;
 	border-radius: 1px;
 	position: absolute;
 	top: 50%;
@@ -273,3 +278,76 @@ to {opacity: 0.9;}
 	background:url('./static/img/loading.gif') no-repeat;
 	background-size: 30px 30px;
 }
+
+/**
+ * 表格
+ */
+ .asse-table{
+    border-top: 1px solid #E6E6E6;
+    border-left: 1px solid #E6E6E6;
+    border-collapse: collapse;
+    color: #666;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+ }
+
+.asse-table th ,.asse-table td {
+    border-right: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    margin: 0;
+    padding: 8px 15px;
+ }
+
+.asse-table th{
+    font-weight: normal;
+    background: #F2F2F2;
+    color: #636;
+}
+
+ .asse-table tr {
+    height: 30px;
+    border-bottom: 1px solid #E6E6E6;
+    border-left: 1px solid #E6E6E6;
+ }
+
+/**
+ * 样式
+ */
+
+.asse-con{
+    width: calc(100% - 20px);
+    background: #fff;
+    border-radius: 1px;
+    padding: 10px;
+  }
+
+ .asse-block{
+	border: 1px solid #eee;
+	width: calc(100% - 21px);
+	border-radius: 3px;
+	margin-top : 20px;
+ }
+
+ .asse-show{
+	display: block;
+ }
+
+ .asse-hide{
+	display: none;
+ }
+
+ .asse-center{
+	margin: 0 auto;
+	margin-top: 50%;
+	transform: translateX(-50%);
+ }
+
+ .asse-center-x{
+	margin: 0 auto;
+ }
+
+ .asse-center-y{
+ 	margin-top: 50%;
+ 	transform: translateX(-50%);
+ }
