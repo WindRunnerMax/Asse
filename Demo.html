@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 	<meta charset="utf-8" />
 </head>
-<link rel="stylesheet" type="text/css" href="./asse.css">
+<link rel="stylesheet" type="text/css" href="asse.css">
 <!-- <script type="text/javascript" src="static/jquery-1.11.1.min.js"></script> -->
 <body>
 <fieldset class="asse-fieldset">
@@ -40,7 +40,7 @@
 	<div class="asse-btn asse-btn-blue" onclick="openHtml()">Html</div>
 </fieldset>
 <fieldset class="asse-fieldset">
-	<legend>表格</legend>
+	<legend>静态表格</legend>
 	<table class="asse-table" > 
 	    <tr>
 	        <th>Id</th>
@@ -59,8 +59,12 @@
 	    </tr>
 	</table>
 </fieldset>
+<fieldset class="asse-fieldset">
+	<legend>数据表格</legend>
+	<div id="asse-table-test"></div>
+</fieldset>
 </body>
-<script type="text/javascript" src="./asse.js"></script>
+<script type="text/javascript" src="asse.js"></script>
 <script type="text/javascript">
 	var msgIndex = "";
 	var sucPopup = (message,icon,bool) =>{
@@ -90,6 +94,26 @@
 			shade : true,
 			end : () => {console.log("回调成功");} //弹窗结束后回掉函数
 		});
+	}
+	window.onload = () =>{
+        // {
+        //     "count":3,
+        //     "data":[
+        //         {"id":1,"name":"John","birth":"2019-01-01"},
+        //         {"id":2,"name":"Tom","birth":"2019-01-02"},
+        //         {"id":3,"name":"Tim","birth":"2019-01-03"}
+        //     ]
+        // }
+        ///////////注意：由于部分浏览器限制本地请求数据，请尽量于服务器测试
+		asse.table.render({
+			ele:"#asse-table-test",
+			url:"static/json/test.json",
+			column:[
+				// {title:"ID",field:"id"},
+				{title:"NAME",field:"name"},
+				{title:"BIRTH",field:"birth"}
+			]
+		})
 	}
 </script>
 </html>

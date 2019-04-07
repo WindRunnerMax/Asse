@@ -123,10 +123,42 @@
 				if(node) head.removeChild(node);
 			},
 			default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : true }
-		}
+		},
+        table:{
+            handleData : function(){
+                var that = this;
+                var headN = this.options.column.length;
+                var tableHead = "<tr>";
+                for(var i=0;i<headN;++i){tableHead+=("<th>" + this.options.column[i].title + "</th>");}
+                tableHead+="</tr>"
+                try{
+                    $.ajax({type:"get",async:false,url:that.options.url,dataType:"json",success:data => {
+                        var tableBody = "";
+                        var bodyN = data.data.length;
+
+                        for(var i=0;i<bodyN;++i ){
+                            tableBody += "<tr>";
+                            for(var k=0;k<headN;++k){
+                                tableBody += ("<td>" + data.data[i][that.options.column[k].field] + "</td>");
+                            }
+                            tableBody += "</tr>";
+                        }
+                        var table = '<table class="asse-table" >' + tableHead +tableBody + '</table>';
+                        $(this.options.ele).html(table);
+                    },error:() =>{ $(this.options.ele).html("表格数据接口异常"); }});
+                }catch(e){
+                    $(this.options.ele).html("表格数据接口异常");
+                }
+            },
+            options : {},
+            render : function(setting = {}){
+                this.options = asse.extend(true,this.default);
+                this.options = asse.extend(this.options,setting);
+                this.handleData();
+            },
+            default : { ele:"" , url : "" , column : [] , page: false , limit : 10}
+        }
 	});
-	
-	
 	
 	win.asse = asse;
 }(window,document));
