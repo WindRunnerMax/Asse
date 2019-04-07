@@ -125,5 +125,8 @@
 			default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : true }
 		}
 	});
+	
+	
+	
 	win.asse = asse;
 }(window,document));
