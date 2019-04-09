@@ -105,13 +105,20 @@
         //     ]
         // }
         ///////////注意：由于部分浏览器限制本地请求数据，请尽量于服务器测试
+        /**
+         * ele是要打印表格的元素
+         * url是请求资源位置
+         * column是列 [title是列标题，fielld是数据字段，html如果为true，则content字段生效，其中自定义HTML]
+         * 
+         */
 		asse.table.render({
 			ele:"#asse-table-test",
 			url:"static/json/test.json",
 			column:[
 				// {title:"ID",field:"id"},
 				{title:"NAME",field:"name"},
-				{title:"BIRTH",field:"birth"}
+				{title:"BIRTH",field:"birth"},
+				{title:"OPERATE",html:true,content:"<a class='asse-btn asse-btn-blue asse-btn-mini' onclick=alert('{{d.id}}')>{{d.name}}操作1</a><a class='asse-btn asse-btn-blue asse-btn-mini' onclick=alert('{{d.id}}')>操作2</a>"}
 			]
 		})
 	}

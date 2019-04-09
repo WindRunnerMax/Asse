@@ -125,27 +125,36 @@
 			default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : true }
 		},
         table:{
+        	tpl:function(data,column){
+        		var html = column.content;
+        		html=asse.tpl.compile(html);
+        		var fun = new Function('d',html); //作为函数执行
+        		return fun(data);
+        	},
             handleData : function(){
                 var that = this;
-                var headN = this.options.column.length;
                 var tableHead = "<tr>";
-                for(var i=0;i<headN;++i){tableHead+=("<th>" + this.options.column[i].title + "</th>");}
+                this.options.column.forEach(function(value){
+                	tableHead+=("<th>" + value.title + "</th>");
+                })
                 tableHead+="</tr>"
                 try{
                     $.ajax({type:"get",async:false,url:that.options.url,dataType:"json",success:data => {
                         var tableBody = "";
-                        var bodyN = data.data.length;
-
-                        for(var i=0;i<bodyN;++i ){
+                        data.data.forEach(function(value,i){
                             tableBody += "<tr>";
-                            for(var k=0;k<headN;++k){
-                                tableBody += ("<td>" + data.data[i][that.options.column[k].field] + "</td>");
-                            }
+                            that.options.column.forEach(function(value2,k){
+                            	if (value2.html && value2.html === true) {
+                                	tableBody += ("<td>" + that.tpl(value,value2) + "</td>");
+                            	}else{
+                                	tableBody += ("<td>" + value[value2.field] + "</td>");
+                            	}
+                            })
                             tableBody += "</tr>";
-                        }
-                        var table = '<table class="asse-table" >' + tableHead +tableBody + '</table>';
+                        })
+                        var table = '<table class="asse-table" >' + tableHead + tableBody + '</table>';
                         $(this.options.ele).html(table);
-                    },error:() =>{ $(this.options.ele).html("表格数据接口异常"); }});
+                    },error:(e) =>{$(this.options.ele).html("表格数据接口异常"); }});
                 }catch(e){
                     $(this.options.ele).html("表格数据接口异常");
                 }
@@ -157,6 +166,19 @@
                 this.handleData();
             },
             default : { ele:"" , url : "" , column : [] , page: false , limit : 10}
+        },
+        tpl:{
+        	escape: function(html){
+		      return String(html||'').replace(/&(?!#?[a-zA-Z0-9]+;)/g, '&amp;')
+		      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+		    },
+        	compile:function(html){
+        		html = html.replace(/"/g,'\\"').replace(/\{\{(.)*?\}\}/g,function(value){ 
+        			return  value.replace("{{",'"+(').replace("}}",')+"');
+        		})
+        		html = '"use strict";var view = "' + html + '";return view;';
+        		return html; //处理成为合适的字符串，作为执行函数
+        	}
         }
 	});
 	
