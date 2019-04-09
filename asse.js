@@ -133,19 +133,20 @@
         		var html = column.content;
         		return asse.tpl.compile(html,data);
         	},
-            tableOpen : function(){
+            tableOpen : function(index){
                 var that = this;
+                var options = this.tableList[index];
                 var tableHead = "<tr>";
-                this.options.column.forEach(function(value){
+                options.column.forEach(function(value){
                 	tableHead+=("<th>" + value.title + "</th>");
                 })
                 tableHead+="</tr>"
                 try{
-                    $.ajax({type:"get",async:false,url:that.options.url,dataType:"json",success:data => {
+                    $.ajax({type:"get",url:options.url,dataType:"json",success:data => {
                         var tableBody = "";
                         data.data.forEach(function(value,i){
                             tableBody += "<tr>";
-                            that.options.column.forEach(function(value2,k){
+                            options.column.forEach(function(value2,k){
                             	if (value2.html && value2.html === true) {
                                 	tableBody += ("<td>" + that.tpl(value,value2) + "</td>");
                             	}else{
@@ -155,18 +156,18 @@
                             tableBody += "</tr>";
                         })
                         var table = '<table class="asse-table" >' + tableHead + tableBody + '</table>';
-                        $(this.options.ele).html(table);
-                    },error:(e) =>{$(this.options.ele).html("表格数据接口异常"); }});
+                        $(options.ele).html(table);
+                    },error:(e) =>{$(options.ele).html("表格数据接口异常"); }});
                 }catch(e){
-                    $(this.options.ele).html("表格数据接口异常");
+                    $(options.ele).html("表格数据接口异常");
                 }
             },
             render : function(setting = {}){
                 this.options = asse.extend(true,this.default);
                 this.options = asse.extend(this.options,setting);
                 this.options.index = ++this.index;
-                this.tableList.push(this.options);
-                this.tableOpen();
+                this.tableList.push(this.options); //也可以采用new Object的方式存储
+                this.tableOpen(this.index);
                 return this.index;
             }
         },
