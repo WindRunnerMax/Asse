@@ -127,9 +127,7 @@
         table:{
         	tpl:function(data,column){
         		var html = column.content;
-        		html=asse.tpl.compile(html);
-        		var fun = new Function('d',html); //作为函数执行
-        		return fun(data);
+        		return asse.tpl.compile(html,data);
         	},
             handleData : function(){
                 var that = this;
@@ -165,19 +163,20 @@
                 this.options = asse.extend(this.options,setting);
                 this.handleData();
             },
-            default : { ele:"" , url : "" , column : [] , page: false , limit : 10}
+            default : { ele:"" , url : "" , column : [] , page: false , limit : 10 , curPage : 0 , count : 0}
         },
         tpl:{
         	escape: function(html){
 		      return String(html||'').replace(/&(?!#?[a-zA-Z0-9]+;)/g, '&amp;')
 		      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
 		    },
-        	compile:function(html){
+        	compile:function(html,data){
         		html = html.replace(/"/g,'\\"').replace(/\{\{(.)*?\}\}/g,function(value){ 
         			return  value.replace("{{",'"+(').replace("}}",')+"');
         		})
-        		html = '"use strict";var view = "' + html + '";return view;';
-        		return html; //处理成为合适的字符串，作为执行函数
+        		html = '"use strict";var view = "' + html + '";return view;'; //处理成为合适的字符串，作为执行函数
+        		var fun = new Function('d',html); //作为函数执行
+        		return fun(data); 
         	}
         }
 	});
