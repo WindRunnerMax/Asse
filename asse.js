@@ -61,8 +61,9 @@
 
 	asse.extend({
 		popup:{
+            options : {},
 			icon : ['asse-icon-info','asse-icon-success','asse-icon-error','asse-icon-info'],
-			options : {},
+            default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : true },
 			init : function(index,setting){
 				// this.closeAll(); //初始化时执行关闭
 				this.options = asse.extend(true,this.default);
@@ -121,15 +122,18 @@
 				var head = doc.getElementsByTagName('body')[0];
 				var node = doc.getElementById(index);
 				if(node) head.removeChild(node);
-			},
-			default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : true }
+			}
 		},
         table:{
+            options : {},
+            index : -1,
+            tableList : [],
+            default : { ele:"" , url : "" , column : [] , page: false , limit : 10 , curPage : 0 , count : 0, index : 0},
         	tpl:function(data,column){
         		var html = column.content;
         		return asse.tpl.compile(html,data);
         	},
-            handleData : function(){
+            tableOpen : function(){
                 var that = this;
                 var tableHead = "<tr>";
                 this.options.column.forEach(function(value){
@@ -157,13 +161,14 @@
                     $(this.options.ele).html("表格数据接口异常");
                 }
             },
-            options : {},
             render : function(setting = {}){
                 this.options = asse.extend(true,this.default);
                 this.options = asse.extend(this.options,setting);
-                this.handleData();
-            },
-            default : { ele:"" , url : "" , column : [] , page: false , limit : 10 , curPage : 0 , count : 0}
+                this.options.index = ++this.index;
+                this.tableList.push(this.options);
+                this.tableOpen();
+                return this.index;
+            }
         },
         tpl:{
         	escape: function(html){

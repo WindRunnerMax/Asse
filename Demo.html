@@ -62,6 +62,7 @@
 <fieldset class="asse-fieldset">
 	<legend>数据表格</legend>
 	<div id="asse-table-test"></div>
+	<div id="asse-table-test2"></div>
 </fieldset>
 </body>
 <script type="text/javascript" src="asse.js"></script>
@@ -116,6 +117,18 @@
 			url:"static/json/test.json",
 			column:[
 				// {title:"ID",field:"id"},
+				{title:"NAME",field:"name"},
+				{title:"BIRTH",field:"birth"},
+				{title:"OPERATE",html:true,content:"<a class='asse-btn asse-btn-blue asse-btn-mini' onclick=alert('{{d.id}}')>{{d.name}}操作1</a><a class='asse-btn asse-btn-blue asse-btn-mini' onclick=alert('{{d.id}}')>操作2</a>"}
+			]
+		})
+		asse.table.render({
+			ele:"#asse-table-test2",
+			url:"static/json/test.json",
+			page:true,
+			limit:2,
+			column:[
+				{title:"ID",field:"id"},
 				{title:"NAME",field:"name"},
 				{title:"BIRTH",field:"birth"},
 				{title:"OPERATE",html:true,content:"<a class='asse-btn asse-btn-blue asse-btn-mini' onclick=alert('{{d.id}}')>{{d.name}}操作1</a><a class='asse-btn asse-btn-blue asse-btn-mini' onclick=alert('{{d.id}}')>操作2</a>"}

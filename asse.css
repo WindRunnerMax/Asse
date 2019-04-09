@@ -279,6 +279,7 @@ to {opacity: 0.9;}
  * 表格
  */
  .asse-table{
+    margin-top: 5px;
     border-top: 1px solid #E6E6E6;
     border-left: 1px solid #E6E6E6;
     border-collapse: collapse;
