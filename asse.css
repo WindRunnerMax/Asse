@@ -345,7 +345,7 @@ to {opacity: 0.9;}
 
 .asse-table-pagetips{
     position: absolute;
-    top: calc(50% - 10px);
+    top: calc(50% - 8px);
 }
 
 /**
