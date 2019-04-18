@@ -206,5 +206,4 @@
 	});
 	
 	win.asse = asse;
->>>>>>> bf5df08989220e31ca7328fa7c2efd13bdd3a8ab
 }(window,document));
