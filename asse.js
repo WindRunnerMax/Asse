@@ -128,12 +128,18 @@
             options : {},
             index : -1,
             tableList : [],
-            default : { ele:"" , url : "" , column : [] , page: false , limit : 10 , curPage : 0 , count : 0, index : 0},
+            default : { ele:"" , url : "" , column : [] , page: false , limit : 10 , curPage : 1 , count : 0, index : 0},
         	tpl:function(data,column){
         		var html = column.content;
         		return asse.tpl.compile(html,data);
         	},
-            tableOpen : function(index){
+            page : function(index,page){
+                var options = this.tableList[index];
+                if (page<1 || page>(parseInt(options.count/options.limit)+1)) {return "";}
+                options.curPage = page;
+                this.tableOpen(index);
+            },
+            tableOpen : function(index){  //拼接表格
                 var that = this;
                 var options = this.tableList[index];
                 var tableHead = "<tr>";
@@ -142,7 +148,16 @@
                 })
                 tableHead+="</tr>"
                 try{
-                    $.ajax({type:"get",url:options.url,dataType:"json",success:data => {
+                    var url = options.url;
+                    if (options.page) {   // 拼接请求Url
+                        var urlArr = url.split("?");
+                        var pageUrl = "page=" + options.curPage + "&limit=" + options.limit ;
+                        pageUrl += urlArr.length > 1 ? "&" : "";
+                        url = urlArr[0] + "?" + pageUrl;
+                        url += urlArr.length > 1 ? urlArr[1] : "";
+                    }
+                    $.ajax({type:"get",url:url,dataType:"json",success:data => {
+                        options.count = data.count;
                         var tableBody = "";
                         data.data.forEach(function(value,i){
                             tableBody += "<tr>";
@@ -156,8 +171,11 @@
                             tableBody += "</tr>";
                         })
                         var table = '<table class="asse-table" >' + tableHead + tableBody + '</table>';
+                        if (options.page) {
+                            table += "<div class='asse-table-page'><div style='margin-left:20px;' class='asse-table-pre' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></div><div class='asse-table-next' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></div> <div class='asse-table-pagetips' >第"+options.curPage+"/"+(parseInt(options.count/options.limit)+1)+"页 共"+options.count+"条</div></div>";
+                        }
                         $(options.ele).html(table);
-                    },error:(e) =>{$(options.ele).html("表格数据接口异常"); }});
+                    },error:(e) =>{$(options.ele).html('<table class="asse-table" >' + tableHead + '</table>' + "<div class='asse-table-err'>表格数据接口异常</div>"); }});
                 }catch(e){
                     $(options.ele).html("表格数据接口异常");
                 }
