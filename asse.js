@@ -134,10 +134,10 @@
         		return asse.tpl.compile(html,data);
         	},
             page : function(index,page){
-                var popupIndex = asse.popup.load("数据加载中");
                 var options = this.tableList[index];
                 if (page<1 || page>(parseInt(options.count/options.limit)+1)) {return "";}
                 options.curPage = page;
+                var popupIndex = asse.popup.load("数据加载中",{time:5000});
                 this.tableOpen(index);
                 asse.popup.close(popupIndex);
             },
