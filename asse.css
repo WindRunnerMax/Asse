@@ -81,6 +81,8 @@ to {opacity: 0.9;}
     line-height: 22px;
     padding: 0 5px;
     font-size: 12px;
+    border-radius: 2px;
+    font-size: 10px;
 }
 
 /**
@@ -308,6 +310,43 @@ to {opacity: 0.9;}
     border-left: 1px solid #E6E6E6;
  }
 
+ .asse-table-err , .asse-table-page{
+    font-size: 15px;
+    color: #666;
+    padding: 8px 15px;
+    text-align: center;
+    border: 1px solid #E6E6E6;
+    border-top: none;
+ }
+
+ .asse-table-page{
+    position: relative;
+    text-align: left;
+    padding: 3px;
+ }
+
+  .asse-table-page div{
+    display: inline-block;
+    margin-left: 10px;
+ }
+
+.asse-table-pre , .asse-table-next{
+    margin: 5px 5px 0px 20px;
+    cursor: pointer;
+    height: 26px;
+    width: 26px;
+    background:url('./static/svg/page.svg') no-repeat;
+    background-size: 26px 26px;
+}
+
+.asse-table-next{
+    transform:rotate(180deg);
+}
+
+.asse-table-pagetips{
+    position: absolute;
+    top: calc(50% - 10px);
+}
 
 /**
  * 样式
