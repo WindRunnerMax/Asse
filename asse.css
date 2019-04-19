@@ -111,6 +111,13 @@ to {opacity: 0.9;}
     color: #aaa;
   }
 
+.asse-select{
+    height: 22px;
+    padding: 0 5px;
+    font-size: 12px;
+    border-radius: 2px;
+    font-size: 10px;
+}
 
 
 /**
@@ -345,7 +352,7 @@ to {opacity: 0.9;}
 
 .asse-table-pagetips{
     position: absolute;
-    top: calc(50% - 8px);
+    top: calc(50% - 13px);
 }
 
 /**

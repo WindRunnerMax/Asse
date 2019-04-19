@@ -174,7 +174,13 @@
                         })
                         var table = '<table class="asse-table" >' + tableHead + tableBody + '</table>';
                         if (options.page) {
-                            table += "<div class='asse-table-page'><div style='margin-left:20px;' class='asse-table-pre' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></div><div class='asse-table-next' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></div> <div class='asse-table-pagetips' >第"+options.curPage+"/"+(parseInt(options.count/options.limit)+1)+"页 共"+options.count+"条</div></div>";
+                            var select = "<div><select class='asse-select' id='asse-select-jump'>";
+                            var pageN = parseInt(options.count/options.limit)+1;
+                            for (var i = 1; i <= pageN; i++) {
+                                select+=" <option "+((options.curPage == i) ? "selected" : "")+" >"+i+"</option>";
+                            }
+                            select+="</select></div> <div class='asse-btn asse-btn-white asse-btn-mini' onclick=asse.table.page("+options.index+",$('#asse-select-jump').val())>转到</div>";
+                            table += "<div class='asse-table-page'><div style='margin-left:20px;' class='asse-table-pre' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></div><div class='asse-table-next' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></div> <div class='asse-table-pagetips' >第"+options.curPage+"/"+(pageN)+"页 共"+options.count+"条 "+select+"</div></div>";
                         }
                         $(options.ele).html(table);
                     },error:(e) =>{$(options.ele).html('<table class="asse-table" >' + tableHead + '</table>' + "<div class='asse-table-err'>表格数据接口异常</div>"); }});
