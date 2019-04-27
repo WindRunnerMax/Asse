@@ -158,7 +158,7 @@
                         url = urlArr[0] + "?" + pageUrl;
                         url += urlArr.length > 1 ? urlArr[1] : "";
                     }
-                    $.ajax({type:"get",url:url,dataType:"json",success:data => {
+                    $.ajax({type:"get",url:url,dataType:"json",success:function(data){
                         options.count = data.count;
                         var tableBody = "";
                         data.data.forEach(function(value,i){
@@ -183,7 +183,7 @@
                             table += "<div class='asse-table-page'><div style='margin-left:20px;' class='asse-table-pre' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></div><div class='asse-table-next' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></div> <div class='asse-table-pagetips' >第"+options.curPage+"/"+(pageN)+"页 共"+options.count+"条 "+select+"</div></div>";
                         }
                         $(options.ele).html(table);
-                    },error:(e) =>{$(options.ele).html('<table class="asse-table" >' + tableHead + '</table>' + "<div class='asse-table-err'>表格数据接口异常</div>"); }});
+                    },error:function(e){$(options.ele).html('<table class="asse-table" >' + tableHead + '</table>' + "<div class='asse-table-err'>表格数据接口异常</div>"); }});
                 }catch(e){
                     $(options.ele).html("表格数据接口异常");
                 }
@@ -210,6 +210,23 @@
         		var fun = new Function('d',html); //作为函数执行
         		return fun(data); 
         	}
+        },
+        nav:{
+            open:function(){
+                var navDoc = $('#asse-nav');
+                if (navDoc) {
+                    navDoc.attr("class","asse-nav");
+                    $(doc).scroll(function(){
+                        if ($(doc).scrollTop() === 0) {
+                            navDoc.attr("class","asse-nav");
+                        }
+                        else {
+                            navDoc.attr("class","asse-nav asse-nav-scroll");
+                        }
+                    })
+                }
+                
+            }
         }
 	});
 	

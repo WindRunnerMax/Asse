@@ -6,8 +6,14 @@
 	<meta charset="utf-8" />
 </head>
 <link rel="stylesheet" type="text/css" href="asse.css">
-<!-- <script type="text/javascript" src="static/jquery-1.11.1.min.js"></script> -->
+<script type="text/javascript" src="static/jquery-1.11.1.min.js"></script>
 <body>
+
+	<div class="asse-nav-block"></div> <!-- 撑起nav -->
+	<nav id="asse-nav" >
+		<div>LOGO<div><a>导航栏</a>
+	</nav>
+
 <fieldset class="asse-fieldset">
 	<legend>按钮</legend>
 	<div class="asse-btn">按钮</div>
@@ -36,7 +42,7 @@
 	<div class="asse-btn asse-btn-blue" onclick="sucPopup('测试ERR 遮罩',2,true)">Error</div>
 	<div class="asse-btn asse-btn-blue" onclick="sucPopup('测试INF',3,false)">Info</div>
 	<div class="asse-btn asse-btn-blue" onclick="sucLoad()">Load</div>
-	<div class="asse-btn asse-btn-blue" onclick="dropLoad()">CloseLoad</div>
+	<div class="asse-btn asse-btn-blue" onclick="dropLoad()">CloseALL</div>
 	<div class="asse-btn asse-btn-blue" onclick="openHtml()">Html</div>
 </fieldset>
 <fieldset class="asse-fieldset">
@@ -67,6 +73,7 @@
 </body>
 <script type="text/javascript" src="asse.js"></script>
 <script type="text/javascript">
+	asse.nav.open();
 	var msgIndex = "";
 	var sucPopup = (message,icon,bool) =>{
 		asse.popup.msg(message,{
@@ -86,7 +93,8 @@
 		});
 	}
 	var dropLoad = () =>{
-		asse.popup.close(msgIndex)
+		// asse.popup.close(msgIndex);
+		asse.popup.closeAll();
 	}
 	var openHtml = () =>{
 		asse.popup.open("信息","<div>在这里可以写任何Html代码</div>",{
