@@ -63,7 +63,7 @@
 		popup:{
             options : {},
 			icon : ['asse-icon-info','asse-icon-success','asse-icon-error','asse-icon-info'],
-            default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : true },
+            default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : false },
 			init : function(index,setting){
 				// this.closeAll(); //初始化时执行关闭
 				this.options = asse.extend(true,this.default);
@@ -76,7 +76,7 @@
 				node.id = index;
 				node.className = classNameSet;
 				var shadeClose = this.options.shadeClose ? "onclick=asse.popup.close(\'"+index+"\') " : "";
-				html += this.options.shade ? "<div class='asse-shade' "+shadeClose+"></div>" : "";
+				html += "<div class='asse-shade' "+shadeClose+" "+ (this.options.shade ? "style='opacity: 0.2;'" : "") +"></div>";
 				node.innerHTML = html ;
 				head.appendChild(node);
 				$("#" + index).fadeIn(200);

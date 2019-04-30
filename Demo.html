@@ -11,7 +11,10 @@
 
 	<div class="asse-nav-block"></div> <!-- 撑起nav -->
 	<nav id="asse-nav" >
-		<div>LOGO<div><a>导航栏</a>
+		<div>LOGO</div><a>导航栏</a>
+<!-- 		<ul>
+			<li><a href="#">1</a></li>
+		</ul> -->
 	</nav>
 
 <fieldset class="asse-fieldset">
@@ -79,7 +82,7 @@
 		asse.popup.msg(message,{
 			icon: icon , //1.success 2.error 3.info
 			time : 2000, //0为不自动关闭，以毫秒为单位
-			shadeClose : true,
+			shadeClose : bool,
 			shade : bool,
 			end : () => {console.log("回调成功");} //弹窗结束后回掉函数
 		});
