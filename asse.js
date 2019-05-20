@@ -180,7 +180,7 @@
                                 select+=" <option "+((options.curPage == i) ? "selected" : "")+" >"+i+"</option>";
                             }
                             select+="</select></div> <div class='asse-btn asse-btn-white asse-btn-mini' onclick=asse.table.page("+options.index+",$('#asse-select-jump').val())>转到</div>";
-                            table += "<div class='asse-table-page'><div style='margin-left:20px;' class='asse-table-pre' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></div><div class='asse-table-next' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></div> <div class='asse-table-pagetips' >第"+options.curPage+"/"+(pageN)+"页 共"+options.count+"条 "+select+"</div></div>";
+                            table += "<div class='asse-table-page'><div style='margin-left:20px;' class='asse-table-pre' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></div><div class='asse-table-next' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></div> <div class='asse-table-pagetips' >"+select+" &nbsp;<span>第"+options.curPage+"/"+(pageN)+"页 共"+options.count+"条</span></div></div>";
                         }
                         $(options.ele).html(table);
                     },error:function(e){$(options.ele).html('<table class="asse-table" >' + tableHead + '</table>' + "<div class='asse-table-err'>表格数据接口异常</div>"); }});
@@ -216,14 +216,30 @@
                 var navDoc = $('#asse-nav');
                 if (navDoc) {
                     navDoc.attr("class","asse-nav");
+                    navDoc.append("<div id='asse-nav-btn' class='asse-nav-btn' asse-flag='0' onclick='asse.nav.expand()'><div>");
                     $(doc).scroll(function(){
                         if ($(doc).scrollTop() === 0) {
-                            navDoc.attr("class","asse-nav");
-                        }
-                        else {
-                            navDoc.attr("class","asse-nav asse-nav-scroll");
+                            navDoc.removeClass("asse-nav-scroll");
+                        }else {
+                            navDoc.addClass("asse-nav-scroll");
                         }
                     })
+                }
+                
+            },
+            expand:function(){
+                var navBtnDoc = $('#asse-nav-btn');
+                var flag = navBtnDoc.attr("asse-flag");
+                var navUlDoc = $("#asse-nav ul");
+                if (navUlDoc) {
+                    navUlDoc.attr("class","asse-nav-shrink");
+                    if (flag === '0') {
+                        navUlDoc.addClass("asse-nav-expand");
+                        navBtnDoc.attr("asse-flag",'1');
+                    }else{
+                        navUlDoc.removeClass("asse-nav-expand");
+                        navBtnDoc.attr("asse-flag",'0');
+                    }
                 }
                 
             }

@@ -121,8 +121,66 @@ to {opacity: 0.9;}
     font-size: 12px;
     border-radius: 2px;
     font-size: 10px;
+    position: relative;
+    top: -1px;
 }
 
+/**
+ * 导航栏
+ */
+.asse-nav{
+    background-color: rgba(238, 238, 238, 0.8);
+    height: 70px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    line-height: 70px;
+    padding: 0;
+    width: 100%;
+    transition: all .3s;
+    z-index: 99999;
+ }
+
+ .asse-nav-scroll{
+    color: #fff;
+    background-color: rgba(66, 71, 83, 0.9);
+    height: 60px;
+    line-height: 60px;
+    transition: all .3s;
+ }
+
+#asse-nav *{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#asse-nav a {
+    color: inherit;
+    text-decoration:none;
+    margin: 0 5px;
+}
+
+#asse-nav a:hover {
+    opacity: 0.7;
+}
+
+.asse-nav-block{
+    height: 70px;
+    width: 100%;
+}
+
+.asse-nav-btn{
+    position: absolute;
+    right: 15px;
+    background:url('./static/svg/nav.svg') no-repeat;
+    background-size: 30px 30px;
+    height: 30px;
+    width: 30px;
+    top: calc(50% - 15px);
+    cursor: pointer;
+    display: none !important;
+}
 
 /**
  * 面板 导航栏
@@ -149,8 +207,39 @@ to {opacity: 0.9;}
 	}
 
 	#asse-nav ul{
-		visibility: hidden;
+		height: 0px;
+        overflow: hidden;
+        transition: all .3s;
 	}
+
+    .asse-nav{
+        color: #fff;
+        background-color: rgba(66, 71, 83, 0.9);
+        transition: all .3s;
+    }
+
+    .asse-nav-btn{
+        display: block !important;
+    }
+
+    .asse-nav-shrink{
+        height: 0px;
+        overflow: hidden;
+        transition: all .3s;
+    }
+
+    .asse-nav-expand{
+        border-top: 1px solid #eee;
+        background-color: rgba(66, 71, 83, 0.9);
+        width: 100%;
+        height: auto !important;
+        overflow: auto !important;
+        transition: all .3s !important;
+    }
+
+    #asse-nav ul li{
+        display: block !important;
+    }
 }
 
 @media screen and (min-width:600px) /* >=600 */
@@ -181,41 +270,10 @@ to {opacity: 0.9;}
 		position: absolute;
 		right: 10px; 
 	}
-}
 
-/**
- * 导航栏
- */
-.asse-nav{
-    background-color: rgba(238, 238, 238, 0.8);
-    height: 70px;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    line-height: 70px;
-    padding: 0px 20px;
-    width: calc(100% - 40px);
-    transition: all .3s;
-    z-index: 9999;
- }
-
- .asse-nav-scroll{
-    color: #fff;
-    background-color: rgba(66, 71, 83, 0.9);
-    height: 60px;
-    line-height: 60px;
-    transition: all .3s;
- }
-
-#asse-nav *{
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
-
-.asse-nav-block{
-    height: 70px;
-    width: 100%;
+    .asse-nav-btn{
+        display: none !important;
+    }
 }
 
 /**
@@ -401,6 +459,7 @@ to {opacity: 0.9;}
 .asse-table-pagetips{
     position: absolute;
     top: calc(50% - 13px);
+    line-height: 20px;
 }
 
 
