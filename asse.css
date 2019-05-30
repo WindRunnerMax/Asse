@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "static/svg/iconfont.css";
 
 body{
     margin: 0;
@@ -173,13 +174,11 @@ to {opacity: 0.9;}
 .asse-nav-btn{
     position: absolute;
     right: 15px;
-    background:url('./static/svg/nav.svg') no-repeat;
-    background-size: 30px 30px;
-    height: 30px;
-    width: 30px;
-    top: calc(50% - 15px);
+    top: 0px;
+    font-size: 30px;
     cursor: pointer;
     display: none !important;
+    color: #fff;
 }
 
 /**
@@ -309,6 +308,8 @@ to {opacity: 0.9;}
 	height: 60px;
 	display: flex;
 	padding-right: 15px; 
+	align-items: center;
+	font-size: 16px;
 }
 
 .asse-open-contain{
@@ -322,6 +323,7 @@ to {opacity: 0.9;}
 	min-height: 100px;
 	min-width: 300px;
 	border:1px solid #eee;
+
 }
 
 .asse-open-title{
@@ -340,12 +342,9 @@ to {opacity: 0.9;}
 
 .asse-open-right{
 	position: absolute;
-	top: 13px;
+	top: 1px;
 	right: 15px;
-	height: 20px;
-	width: 20px;
-	background:url('./static/svg/close.svg') no-repeat;
-	background-size: 20px 20px;
+	font-size: 20px;
 	cursor: pointer;
 }
 
@@ -358,36 +357,33 @@ to {opacity: 0.9;}
 	line-height: 60px;
 }
 
+.asse-icon-popup{
+	font-size: 40px;
+	line-height: 60px;
+	margin: 0 15px;
+}
+
 .asse-icon-success {
-	margin: 10px 0 0 15px; 
-	height: 50px;
-	width: 55px;
-	background:url('./static/svg/success.svg') no-repeat;
-	background-size: 40px 40px;
+	color: green;
 }
 
 .asse-icon-error {
-	margin: 16px 0 0 15px; 
-	height: 50px;
-	width: 45px;
-	background:url('./static/svg/error.svg') no-repeat;
-	background-size: 30px 30px;
+	color: red;
+	font-size: 30px;
+	margin-top: 1px;
 }
 
 .asse-icon-info {
-	margin: 16px 0 0 15px; 
-	height: 50px;
-	width: 45px;
-	background:url('./static/svg/info.svg') no-repeat;
-	background-size: 30px 30px;
+	color: #1E9FFF;
+	font-size: 30px;
+	margin-top: 1px;
 }
 
 .asse-icon-load {
-	margin: 15px 5px 0 15px; 
+	margin: 19px 5px 0 15px; 
 	height: 50px;
 	width: 40px;
 	background:url('./static/img/loading.gif') no-repeat;
-	background-size: 30px 30px;
 }
 
 /**
@@ -438,18 +434,15 @@ to {opacity: 0.9;}
     padding: 3px;
  }
 
-  .asse-table-page div{
+ .asse-table-page div,.asse-table-page i{
     display: inline-block;
     margin-left: 10px;
  }
 
 .asse-table-pre , .asse-table-next{
-    margin: 5px 5px 0px 20px;
+    margin: 5px 5px;
+    font-size: 23px;
     cursor: pointer;
-    height: 26px;
-    width: 26px;
-    background:url('./static/svg/page.svg') no-repeat;
-    background-size: 26px 26px;
 }
 
 .asse-table-next{

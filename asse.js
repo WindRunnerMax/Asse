@@ -62,13 +62,13 @@
 	asse.extend({
 		popup:{
             options : {},
-			icon : ['asse-icon-info','asse-icon-success','asse-icon-error','asse-icon-info'],
+			icon : ['','asse-icon-success  icon-success','asse-icon-error icon-error','asse-icon-info icon-info'],
             default : { icon:1 ,time : 2000 ,end : () => {} , shade:false ,shadeClose : false },
 			init : function(index,setting){
 				// this.closeAll(); //初始化时执行关闭
 				this.options = asse.extend(true,this.default);
 				this.options = asse.extend(this.options,setting);
-				if (this.options.icon > 3 ) {this.options.icon = 3;}
+				if (this.options.icon > 3 | this.options.icon <= 0 ) {this.options.icon = 3;}
 			},
 			base:function(index , classNameSet , html ){
 				var head = doc.getElementsByTagName('body')[0];
@@ -86,13 +86,13 @@
 				var index = "asse-msg" + parseInt( Math.random() * 100);
 				this.init(index,setting); //初始化options
 				var className = "asse-contain";
-				var html = '<div class="asse-msg-contain"><span class='+ this.icon[this.options.icon] +'></span><span class="asse-msg-word">'+message+'</span></div>';
+				var html = '<div class="asse-msg-contain"><i class="asse-icon-popup iconfont '+ this.icon[this.options.icon] +'"></i><span class="asse-msg-word">'+message+'</span></div>';
 				this.base(index,className,html);
 				return index;
 			},
 			load:function(message = "请稍后" ,setting = {}){
 				var index = "asse-msg" + parseInt( Math.random() * 100);
-				this.init(index,setting); //初始化options
+				this.init(index,setting); 
 				var className = "asse-contain";
 				var html = '<div class="asse-msg-contain"><span class="asse-icon-load"></span><span class="asse-msg-word">'+message+'</span></div>';
 				this.base(index,className,html);
@@ -102,7 +102,7 @@
 				var index = "asse-msg" + parseInt( Math.random() * 100);
 				this.init(index,setting); //初始化options
 				var className = "asse-contain";
-				var html = '<div class="asse-open-contain"><div class="asse-open-title"><span class="asse-open-left">'+title+'</span><span class="asse-open-right" onclick=asse.popup.close(\"'+index+'\") ></span></div><div class="asse-open-bottom">'+message+'</div></div>';
+				var html = '<div class="asse-open-contain"><div class="asse-open-title"><span class="asse-open-left">'+title+'</span><i class="asse-open-right iconfont icon-close" onclick=asse.popup.close(\"'+index+'\") ></i></div><div class="asse-open-bottom">'+message+'</div></div>';
 				this.base(index,className,html);
 				return index;
 			},
@@ -180,7 +180,7 @@
                                 select+=" <option "+((options.curPage == i) ? "selected" : "")+" >"+i+"</option>";
                             }
                             select+="</select></div> <div class='asse-btn asse-btn-white asse-btn-mini' onclick=asse.table.page("+options.index+",$('#asse-select-jump').val())>转到</div>";
-                            table += "<div class='asse-table-page'><div style='margin-left:20px;' class='asse-table-pre' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></div><div class='asse-table-next' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></div> <div class='asse-table-pagetips' >"+select+" &nbsp;<span>第"+options.curPage+"/"+(pageN)+"页 共"+options.count+"条</span></div></div>";
+                            table += "<div class='asse-table-page'><i style='margin-left:20px;' class='asse-table-pre iconfont icon-page' onclick=asse.table.page("+options.index+","+(options.curPage-1)+")></i><i class='asse-table-next  iconfont icon-page' onclick=asse.table.page("+options.index+","+(options.curPage+1)+")></i> <div class='asse-table-pagetips' >"+select+" &nbsp;<span>第"+options.curPage+"/"+(pageN)+"页 共"+options.count+"条</span></div></div>";
                         }
                         $(options.ele).html(table);
                     },error:function(e){$(options.ele).html('<table class="asse-table" >' + tableHead + '</table>' + "<div class='asse-table-err'>表格数据接口异常</div>"); }});
@@ -216,7 +216,7 @@
                 var navDoc = $('#asse-nav');
                 if (navDoc) {
                     navDoc.attr("class","asse-nav");
-                    navDoc.append("<div id='asse-nav-btn' class='asse-nav-btn' asse-flag='0' onclick='asse.nav.expand()'><div>");
+                    navDoc.append("<i id='asse-nav-btn' class='asse-nav-btn iconfont icon-nav' asse-flag='0' onclick='asse.nav.expand()'></i>");
                     $(doc).scroll(function(){
                         if ($(doc).scrollTop() === 0) {
                             navDoc.removeClass("asse-nav-scroll");
