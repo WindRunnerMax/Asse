@@ -1,10 +1,6 @@
-# ASSE.JS
->演示地址：https://windrunnermax.github.io/Asse.js/Demo.html  
-> 按钮 组件样式 响应式面板 弹出层 数据表格
-```
-比较常用的前端操作以及样式的封装，会不断维护添加功能  
-参考了 Layui Bootstrap 两款优秀的前端框架
-```
+# ASSE
+> 演示地址：https://windrunnermax.github.io/Asse.js/Demo.html  
+
 
 ## Changelog
 
