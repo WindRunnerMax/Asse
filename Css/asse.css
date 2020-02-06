@@ -238,14 +238,14 @@ page {
 	padding: 0 !important;
 }
 
-.dot {
+.a-dot {
 	width: 8px;
 	height: 8px;
 	border-radius: 8px;
 	background-color: #1E9FFF;
 }
 
-.link {
+.a-link {
 	color: #4C98F7;
 	text-decoration: underline;
 }
