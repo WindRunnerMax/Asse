@@ -1,0 +1,51 @@
+.page {
+	font-family: Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
+	padding: 10px;
+	font-size: 15px;
+	background-color: #F8F8F8;
+}
+
+.signalPage {
+	flex: 1;
+}
+
+.iconfont {
+	font-family: iconfont;
+}
+
+.x-CenterCon {
+	justify-content: center;
+	flex-direction: row;
+}
+
+.dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	margin: 0 5px;
+}
+
+.y-CenterCon {
+	align-items: center;
+	flex-direction: row;
+}
+
+.fill {
+	flex: 1;
+}
+
+.text {
+	font-size: 13px;
+	color: #111111;
+}
+
+.link {
+	font-size: 13px;
+	color: #4C98F7;
+	text-decoration: underline;
+}
+
+.border {
+	border-style: solid;
+	border-color: #EEEEEE;
+}
