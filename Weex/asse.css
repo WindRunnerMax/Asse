@@ -1,12 +1,8 @@
 .page {
 	font-family: Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
-	padding: 10px;
 	font-size: 15px;
+	padding: 10px;
 	background-color: #F8F8F8;
-}
-
-.signalPage {
-	flex: 1;
 }
 
 .iconfont {
