@@ -1,7 +1,3 @@
+# Vue-Cli4
 
-```
-Vue
-  ├── components/              # 组件
-  ├── vector/                  # 部署类
-  └── README.md                # 项目说明
-```
+Vue-Cli4 基础骨架

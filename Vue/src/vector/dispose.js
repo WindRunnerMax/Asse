@@ -1,16 +1,21 @@
 import axios from 'axios'
-axios.defaults.withCredentials = true
 import {
   Message,
   Loading
 } from 'element-ui'
 
+
 const globalData = {
   user: 0,
-  url: "http://dev.touchczy.top/",
+  url: "https://www.touchczy.top/",
   header: {
     'content-type': 'application/x-www-form-urlencoded'
   }
+}
+
+if(process.env.NODE_ENV === "development" ){
+	axios.defaults.withCredentials = true;
+	globalData.url = "/";
 }
 
 function extend() {
