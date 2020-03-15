@@ -219,6 +219,19 @@ page {
 	background-color: #f2f2f2;
 }
 
+/**
+ * 位置
+ */
+
+.x-CenterCon {
+	display: flex;
+	justify-content: center;
+}
+
+.y-CenterCon {
+	display: flex;
+	align-items: center;
+}
 
 
 /**
@@ -256,19 +269,10 @@ page {
 	background-color: #4C98F7;
 }
 
-/**
- * 位置
- */
-
-.x-CenterCon {
-	display: flex;
-	justify-content: center;
+.a-full{
+	flex: 1;
 }
 
-.y-CenterCon {
-	display: flex;
-	align-items: center;
-}
 
 /**
  * 卡片
