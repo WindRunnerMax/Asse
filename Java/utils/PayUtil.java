@@ -34,7 +34,7 @@ public class PayUtil {
         return stringBuilder.toString();
     }
 
-        public static Map<String, String> xmlToMap(String strXML) throws Exception {
+    public static Map<String, String> xmlToMap(String strXML) throws Exception {
         Map<String, String> data = new HashMap<>();
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
