@@ -8,6 +8,10 @@ page {
 	box-sizing: border-box;
 	font-size: 15px;
 	background-color: #F8F8F8;
+	--color-blue: #4C98F7;
+	--color-green: #009688;
+	--color-yellow: #FFB800;
+	--color-orange: #FF5722;
 }
 
 /**
@@ -39,7 +43,7 @@ page {
 	text-rendering: auto;
 	font-size: 12px;
 	cursor: pointer;
-	background: #009688;
+	background: var(--color-green);
 	color: #fff;
 	transition: all .3s;
 }
@@ -50,7 +54,7 @@ page {
 }
 
 .a-btn-blue {
-	background: #1E9FFF;
+	background: var(--color-blue);
 }
 
 .a-btn-white {
@@ -62,12 +66,12 @@ page {
 	border: 1px solid #eee;
 }
 
-.a-btn-yello {
-	background: #FFB800;
+.a-btn-yellow {
+	background: var(--color-yellow);
 }
 
 .a-btn-orange {
-	background: #FF5722;
+	background: var(--color-orange);
 }
 
 .a-btn-disable {
@@ -95,7 +99,6 @@ page {
 	height: 22px;
 	line-height: 22px;
 	padding: 0 5px;
-	font-size: 12px;
 	border-radius: 2px;
 	font-size: 10px;
 }
@@ -255,18 +258,18 @@ page {
 	width: 8px;
 	height: 8px;
 	border-radius: 8px;
-	background-color: #1E9FFF;
+	background-color: var(--color-blue);
 }
 
 .a-link {
-	color: #4C98F7;
+	color: var(--color-blue);
 	text-decoration: underline;
 }
 
 .a-verline {
 	width: 2px;
 	margin: 2px 5px;
-	background-color: #4C98F7;
+	background-color: var(--color-blue);
 }
 
 .a-full{
@@ -299,7 +302,6 @@ page {
 .a-select {
 	height: 22px;
 	padding: 0 5px;
-	font-size: 12px;
 	border-radius: 2px;
 	font-size: 10px;
 	position: relative;
