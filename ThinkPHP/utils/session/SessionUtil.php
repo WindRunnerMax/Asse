@@ -5,10 +5,10 @@
  * Detail: *
  */
 
-namespace enca\appfct;
+namespace utils\session;
 
 
-class SessionFct {
+class SessionUtil {
 
     public static function checkSeesion($key) {
         !isset($_SESSION) && session_start(); //检查Seesion Start

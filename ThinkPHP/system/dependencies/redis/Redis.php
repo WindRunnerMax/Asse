@@ -1,6 +1,6 @@
 <?php
 
-namespace lib\redis;
+namespace system\dependencies\redis;
 
 use \Redis as RedisBase;
 

@@ -1,5 +1,5 @@
 <?php
-namespace lib\wxsdk;
+namespace system\dependencies\wxsdk;
 
 class WXBizMsgCrypt
 {
