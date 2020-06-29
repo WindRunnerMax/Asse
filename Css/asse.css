@@ -226,12 +226,12 @@ page {
  * 位置
  */
 
-.x-CenterCon {
+.x-center {
 	display: flex;
 	justify-content: center;
 }
 
-.y-CenterCon {
+.y-center {
 	display: flex;
 	align-items: center;
 }
@@ -321,7 +321,7 @@ page {
 	border: 1px solid #eee;
 	margin: 10px;
 	display: block;
-	padding: 5px;
+	padding: 3px 5px;
 }
 
 .a-input-con{
