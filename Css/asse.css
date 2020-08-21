@@ -225,6 +225,9 @@ page {
 /**
  * 位置
  */
+.a-flex{
+    display: flex;
+}
 
 .x-center {
 	display: flex;
@@ -262,6 +265,7 @@ page {
 }
 
 .a-link {
+    cursor: pointer;
 	color: var(--color-blue);
 	text-decoration: underline;
 }
@@ -358,4 +362,70 @@ page {
 	border: none;
 	padding: 0;
 	outline: none;
+}
+
+/* 微距 */
+.a-mt{
+    margin-top: 3px;
+}
+
+.a-mr{
+    margin-right: 3px;
+}
+
+.a-mb{
+    margin-bottom: 3px;
+}
+
+.a-ml{
+    margin-left: 3px;
+}
+
+.a-pt{
+    padding-top: 3px;
+}
+
+.a-pr{
+    padding-right: 3px;
+}
+
+.a-pb{
+    padding-bottom: 3px;
+}
+
+.a-pl{
+    padding-left: 3px;
+}
+
+/* 长距 */
+.a-lmt{
+    margin-top: 10px;
+}
+
+.a-lmr{
+    margin-right: 10px;
+}
+
+.a-lmb{
+    margin-bottom: 10px;
+}
+
+.a-lml{
+    margin-left: 10px;
+}
+
+.a-lpt{
+    padding-top: 10px;
+}
+
+.a-lpr{
+    padding-right: 10px;
+}
+
+.a-lpb{
+    padding-bottom: 10px;
+}
+
+.a-lpl{
+    padding-left: 10px;
 }
