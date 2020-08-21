@@ -8,7 +8,6 @@ ThinkPHP
     │     ├── dependencies/        # 依赖类库
     │     └── exception/           # 异常处理
     ├── utils/                     # 辅助功能
-    │     ├── copy/                # 拷贝
     │     ├── encrypt/             # 加密
     │     ├── http/                # HTTP请求
     │     ├── model/               # 模型载入
