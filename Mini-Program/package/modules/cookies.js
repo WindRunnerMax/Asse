@@ -1,23 +1,22 @@
+import stroage from "./storage.js";
+
 /**
  * GetCookie
  */
 function getCookies(res) {
     var cookies = "";
-    if (res && res.header && res.header['Set-Cookie']) {
-        // #ifdef MP-ALIPAY
-        var cookies = res.header['Set-Cookie'][0].split(";")[0] + ";";
-        // #endif
-        // #ifndef MP-ALIPAY
-        var cookies = res.header['Set-Cookie'].split(";")[0] + ";";
-        // #endif
-        console.log("SetCookie:" + cookies);
-        uni.setStorage({
-            key: "cookies",
-            data: cookies
-        });
+    if (res && res.header) {
+        for(let item in res.header){
+            if(item.toLowerCase() === "set-cookie"){
+                var cookie = res.header[item].match(/PHPSESSID=.*?;/);
+                if(cookie) cookies += cookie;
+            }
+        }
+        console.log("SetCookie:", cookies);
+        stroage.setPromise("cookies", cookies);
     } else {
         console.log("Get Cookie From Cache");
-        cookies = uni.getStorageSync("cookies") || "";
+        cookies = stroage.get("cookies") || "";
     }
     return cookies;
 }

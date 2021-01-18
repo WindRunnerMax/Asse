@@ -10,9 +10,30 @@ namespace utils\session;
 
 class SessionUtil {
 
-    public static function checkSeesion($key) {
-        !isset($_SESSION) && session_start(); //检查Seesion Start
+    public static function sessionStart(){
+        !isset($_SESSION) && session_start();   //检查Session Start
+    }
+
+    public static function checkSession($key) {
+        self::sessionStart();
         if (isset($_SESSION[$key])) return $_SESSION[$key];
-        else abort(200,'{ code: 0 , "msg": "System Hint" }');
+        else abort(200,"{ status: 0 , \"msg\": \"System Hint\" }");
+        return "";
+    }
+
+    public static function safeGet($key) {
+        self::sessionStart();
+        if (isset($_SESSION[$key])) return $_SESSION[$key];
+        return "";
+    }
+
+    public static function requiredGet($key) {
+        return self::checkSession($key);
+    }
+
+    public static function set($key, $value) {
+        self::sessionStart();
+        $_SESSION[$key] = $value;
+        return true;
     }
 }

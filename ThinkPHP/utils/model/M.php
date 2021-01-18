@@ -21,12 +21,11 @@ class M {
     private function __clone(){}
 
     /**
-     * @param $name
+     * @param $modelClass
      * @return Model
      * @Detail Loader Model
      */
-    public static function L($name) {
-        $modelClass = "\\model\\${name}";
+    public static function L($modelClass) {
         if(isset(self::$instance[$modelClass])) return self::$instance[$modelClass];
         if (class_exists($modelClass)) $model = new $modelClass();
         else throw new ClassNotFoundException('class not exists:' . $modelClass, $modelClass);

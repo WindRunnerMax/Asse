@@ -32,7 +32,7 @@ function endLoading(option) {
         case 2:
             uni.hideNavigationBarLoading();
             uni.setNavigationBarTitle({
-                title: option.title || "CLI"
+                title: option.title || "山科小站"
             })
             break;
         case 3:

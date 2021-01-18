@@ -1,14 +1,20 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from "vue";
+import App from "./App";
+// import store from "./store";
+import mixin from "./vector/mixins";
+import layout from "@/components/layout/layout.vue";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-App.mpType = 'app'
+App.mpType = "app";
+
+mixin.run(Vue);
+Vue.component("layout",layout);
+
+// Vue.prototype.$store = store;
 
 const app = new Vue({
-    ...App
+    ...App,
+    // store
 })
-app.$mount()
-
-import layout from "@/components/layout.vue"
-Vue.component('layout',layout)
+app.$mount();
