@@ -83,7 +83,7 @@ class Captcha {
         $codeNX = 0; // 验证码第N个字符的左边距
         $code = [];
         $textFont = $config["fontList"][mt_rand(0, count($config["fontList"])-1)];
-        $textFontLoc = __DIR__."/file/${textFont}";
+        $textFontLoc = ROOT_PATH . "public/public/static/fonts/${textFont}";
         for ($i = 0; $i < $config["size"]; $i++) {
             $code[$i] = $this->content[mt_rand(0, strlen($this->content) - 1)];
             $codeNX += mt_rand($config["fontsize"] * 1, $config["fontsize"] * 1.3);

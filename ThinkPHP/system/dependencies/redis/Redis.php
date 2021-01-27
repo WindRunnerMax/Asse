@@ -28,7 +28,7 @@ class Redis {
         if ($config && is_array($config)) {
             self::config($config);
         }
-        if (self::$redis == null) {
+        if (self::$redis === null) {
             self::$redis = new RedisBase();
         }
         self::$redis->connect(self::$host, self::$port, self::$timeout) or die('Redis 连接失败！');
@@ -54,7 +54,7 @@ class Redis {
         if ($config && is_array($config)) {
             self::config($config);
         }
-        if (self::$redis == null) {
+        if (self::$redis === null) {
             self::$redis = new RedisBase();
         }
         self::$redis->connect(self::$host, self::$port, self::$timeout) or die('Redis 连接失败！');
@@ -519,10 +519,10 @@ class Redis {
     public static function lpush($list, $value, $pop = 'first', $expire = 0) {
         if (is_array($value)) {
             foreach ($value as $v) {
-                $result = ($pop == 'last') ? self::$redis->rpush($list, $v) : self::$redis->lpush($list, $v);
+                $result = ($pop === 'last') ? self::$redis->rpush($list, $v) : self::$redis->lpush($list, $v);
             }
         } else {
-            $result = ($pop == 'last') ? self::$redis->rpush($list, $value) : self::$redis->lpush($list, $value);
+            $result = ($pop === 'last') ? self::$redis->rpush($list, $value) : self::$redis->lpush($list, $value);
         }
         if ((int)$expire) {
             self::expire($list, $expire);
@@ -578,7 +578,7 @@ class Redis {
      * @return string|bool  列表第一个元素或最后一个元素,如果列表不存在则返回false
      */
     public static function lpop($list, $pop = 'first') {
-        if ($pop == 'last') {
+        if ($pop === 'last') {
             return self::$redis->rpop($list);
         }
         return self::$redis->lpop($list);
@@ -709,7 +709,7 @@ class Redis {
      * @return string|array   返回随机元素，如果是返回多个则为数组返回
      */
     public static function srand($set, $count = 0) {
-        return ((int)$count == 0) ? self::$redis->srandmember($set) : self::$redis->srandmember($set, $count);
+        return ((int)$count === 0) ? self::$redis->srandmember($set) : self::$redis->srandmember($set, $count);
     }
 
     /**

@@ -7,8 +7,19 @@
 
 namespace config;
 
-class Conf{
+use utils\params\P;
 
-    public static $CTX = "";
+class Config{
+
+    public static $APPID = "";
+    public static $SECRET = "";
+    public static $CQ_KEY = "";
+
+    /**
+     * @return String
+     */
+    public static function getHOST() {
+        return P::safeKey($_SERVER, "REQUEST_SCHEME")."://".P::safeKey($_SERVER, "SERVER_NAME")."/";
+    }
 
 }
