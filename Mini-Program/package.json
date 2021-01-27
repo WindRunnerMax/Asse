@@ -1,0 +1,20 @@
+{
+  "name": "@WindrunnerMax/mini-program-cli",
+  "version": "1.2.0",
+  "description": "Uniapp小程序开发脚手架",
+  "author": "Czy",
+  "license": "MIT",
+  "bin": {
+    "mini-program": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Please use HbuildX import this project\""
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/WindrunnerMax"
+  },
+  "repository": "https://github.com/WindrunnerMax/Asse"
+}

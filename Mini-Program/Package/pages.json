@@ -1,0 +1,41 @@
+{
+    "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path": "pages/index/index"
+        },{
+            "path": "pages/system/not-found"
+        },{
+            "path": "pages/system/webview"
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "CLI",
+        "navigationBarBackgroundColor": "#F1F1F1",
+        "backgroundColor": "#F8F8F8"
+    },
+    "tabBar": {
+        "color": "#aaa",
+        "selectedColor": "#8A8A8A",
+        "backgroundColor": "#F7F7FA",
+        "list": [{
+                "iconPath": "/static/img/index.png",
+                "selectedIconPath": "/static/img/index-active.png",
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "iconPath": "/static/img/fun.png",
+                "selectedIconPath": "/static/img/fun-active.png",
+                "pagePath": "pages/index/index",
+                "text": "功能"
+            },
+            {
+                "iconPath": "/static/img/user.png",
+                "selectedIconPath": "/static/img/user-active.png",
+                "pagePath": "pages/index/index",
+                "text": "用户"
+            }
+        ]
+    }
+}
