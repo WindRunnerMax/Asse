@@ -5,15 +5,10 @@
 var data = {
     url: "",
     tmp: {},
-    colorN: 6,
     openid: "",
-    point : "",
     curWeek: 1,
-    userFlag: 0, // 0 未登录 1 已登陆
     initData: {},
-    version: "3.5.3",
-    curTerm: "2019-2020-1",
-    curTermStart: "2019-08-26",
+    version: "1.0.0",
     colorList : ["#FE9E9F", "#93BAFF", "#D999F9", "#81C784", "#FFCA62", "#FFA477"]
 }
 

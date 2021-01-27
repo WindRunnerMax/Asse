@@ -22,10 +22,8 @@ function disposeApp($app){
     $app.$scope.eventBus = new PubSub();
     $app.$scope.extend($app.data, data);
     $app.$scope.extend($app.$scope, request);
-    $app.data.colorN = $app.data.colorList.length;
     $app.$scope.reInitApp = initAppData.bind($app);
     $app.$scope.throttle = new throttleGenerater();
-    $app.data.curWeek = getCurWeek($app.data.curTermStart);
     $app.$scope.onload = (funct, ...args) => {
         if($app.data.openid) funct(...args);
         else $app.$scope.eventBus.once("LoginEvent", funct);
@@ -51,7 +49,6 @@ function initAppData(){
     }).then((res) => {
         $app.$scope.eventBus.commit("LoginEvent", res);
     }).catch((err) => {
-        console.log(err);
         uni.showModal({
             title: "警告",
             content: "数据初始化失败,点击确定重新初始化数据",

@@ -4,6 +4,8 @@
             "path": "pages/index/index"
         },{
             "path": "pages/system/not-found"
+        },{
+            "path": "pages/system/webview"
         }
     ],
     "globalStyle": {

@@ -1,5 +1,5 @@
 var PubSub = function() {
-    this.handlers = {};
+    this.handlers = Object.create(null);
 }
 
 PubSub.prototype = {
