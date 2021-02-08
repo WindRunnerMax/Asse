@@ -118,11 +118,11 @@ class HTTP {
         $responseHeader_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
         $responseHeadersString = substr($result, 0, $responseHeader_size);
         $responseBody = substr($result, $responseHeader_size);
-        $responseHeadersArr = explode("\n", $responseHeadersString);
-        $responseHeaders = [];
+        $responseHeadersArr = explode("\r\n", $responseHeadersString);
+        $responseHeaders = ["code" => curl_getinfo($curl,CURLINFO_HTTP_CODE)];
         foreach ($responseHeadersArr as $value) {
             $info = explode(": ", $value);
-            if (count($info) >= 2) $responseHeaders[strtolower($info[0])] = $info[1];
+            if(count($info) >= 2) $responseHeaders[strtolower($info[0])] = $info[1];
         }
         return ["headers" => $responseHeaders, "body" => $responseBody];
     }

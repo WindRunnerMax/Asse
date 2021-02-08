@@ -14,6 +14,6 @@ class ErrMsg extends Msg {
 
     public function __construct($msg = null) {
         $this->status = 0;
-        $this->$msg = $msg;
+        $this->msg = $msg;
     }
 }

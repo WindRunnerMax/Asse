@@ -22,13 +22,17 @@ class SessionUtil {
     public static function checkSession($key) {
         self::sessionStart();
         if(isset($_SESSION[$key])) return $_SESSION[$key];
-        else abort(200,"{ status: 0 , \"msg\": \"System Hint\" }");
+        else abort(200,"{ status: 0, \"msg\": \"System Hint\" }");
         return "";
+    }
+
+    public static function get($key) {
+        return self::safeGet($key);
     }
 
     public static function safeGet($key) {
         self::sessionStart();
-        if (isset($_SESSION[$key])) return $_SESSION[$key];
+        if(isset($_SESSION[$key])) return $_SESSION[$key];
         return "";
     }
 
@@ -40,5 +44,10 @@ class SessionUtil {
         self::sessionStart();
         $_SESSION[$key] = $value;
         return true;
+    }
+
+    public static function exist($key) {
+        self::sessionStart();
+        return isset($_SESSION[$key]);
     }
 }
