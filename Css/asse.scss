@@ -96,3 +96,11 @@ $size-list: 3,5,6,10,15,20;
 }
 
 /* end --- 内外边距 --- end */
+
+/* start --- 间隙大小 --- start */
+@for $i from 5 to 15 {
+	.a-gap-#{$i} {
+		height: $i + px;
+	}
+}
+/* end --- 间隙大小 --- end */
