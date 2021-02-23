@@ -12,7 +12,7 @@ class Config{
     static $mchId = "";
     static $key = "";
     static $submitUrl = "https://api.mch.weixin.qq.com/pay/unifiedorder";
-    static $notify = "https://shsv.touchczy.top/pay/accept";
+    static $notify = "";
     static $keyPath = "";
     static $certPath = "";
     static $refundUrl = "https://api.mch.weixin.qq.com/secapi/pay/refund";
