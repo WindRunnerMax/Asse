@@ -315,6 +315,10 @@ page {
 	margin: 2px 5px;
 	background-color: var(--color-blue);
 }
+
+.a-overflow-hidden{
+    overflow: hidden;
+}
 /* section --- 样式 --- section */
 
 
