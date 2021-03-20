@@ -137,6 +137,10 @@ page {
     color: var(--color-green) !important;
 }
 
+.a-color-green-light {
+    color: #18b566 !important;
+}
+
 .a-color-yellow {
     color: var(--color-yellow) !important;
 }
@@ -159,6 +163,10 @@ page {
 
 .a-background-green {
     background-color: var(--color-green) !important;
+}
+
+.a-background-green-light {
+    background-color: #18b566 !important;
 }
 
 .a-background-yellow {
