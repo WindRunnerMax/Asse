@@ -318,6 +318,10 @@ page {
 	text-decoration: underline;
 }
 
+.a-pointer{
+    cursor: pointer;
+}
+
 .a-verline {
 	width: 2px;
 	margin: 2px 5px;
