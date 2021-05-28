@@ -418,6 +418,10 @@ page {
 .line-height-27{
     line-height: 27px;
 }
+
+.break-all{
+    word-break: break-all;
+}
 /* section --- 布局 --- section */
 
 /* section --- 卡片 --- section */
