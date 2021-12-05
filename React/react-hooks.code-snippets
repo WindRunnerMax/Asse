@@ -15,9 +15,9 @@
     //     ],
     //     "description": "Log output to console"
     // }
-    "react-hooks-views": {
+    "react-hooks-view": {
         "scope": "typescriptreact",
-        "prefix": "react-hooks-views",
+        "prefix": "react-hooks-view",
         "body": [
             "import { FC, useState } from \"react\";",
             "import styles from \"./index.module.scss\";",
@@ -29,7 +29,7 @@
         	"export default Component;",
 			""
         ],
-        "description": "react-hooks-views"
+        "description": "react-hooks-view"
     },
 	"react-hooks-component": {
         "scope": "typescriptreact",
@@ -43,7 +43,7 @@
 			"}",
             "",
             "const Component: FC<Props> = props => {",
-            "    return <div className={styles.example}></div>;",
+            "    return <div className={styles.example}>{props.name}</div>;",
             "};",
             "",
 			"Component.defaultProps = {};",
