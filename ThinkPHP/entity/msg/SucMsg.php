@@ -13,10 +13,8 @@ class SucMsg extends Msg {
     public $info = null;
 
     public function __construct($info = null, $args = []) {
+        parent::__construct(null, $args);
         $this->status = 1;
         $this->info = $info;
-        foreach ($args as $key => $value){
-            $this->$key = $value;
-        }
     }
 }

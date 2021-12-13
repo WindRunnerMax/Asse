@@ -15,11 +15,12 @@ class P {
     /**
      * @param $arr
      * @param $key
+     * @param string $default
      * @return string
      * @deatil sage param
      */
-    public static function safeKey($arr, $key) {
-        return isset($arr[$key]) ? $arr[$key] : "";
+    public static function safeKey($arr, $key, $default = "") {
+        return isset($arr[$key]) ? $arr[$key] : $default;
     }
 
     /**

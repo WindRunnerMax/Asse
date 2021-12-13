@@ -2,7 +2,7 @@
 /**
  * Created by Czy
  * Time: 19/12/22 23:00
- * Detail: *
+ * Detail: Config
  */
 
 namespace config;

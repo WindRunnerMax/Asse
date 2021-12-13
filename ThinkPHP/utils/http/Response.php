@@ -27,6 +27,11 @@ class Response {
         return P::safeKey($this->resHeaders, $key);
     }
 
+    public function getAllHeaders($req = false) {
+        if($req) return $this->reqHeaders;
+        return $this->resHeaders;
+    }
+
     public function text(){
         return $this -> resText;
     }

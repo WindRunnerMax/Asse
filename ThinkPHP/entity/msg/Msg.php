@@ -10,5 +10,16 @@ namespace entity\msg;
 class Msg {
 
     public $status = 1;
+    public $msg = null;
 
+    public function __construct($msg = null, $args = []) {
+        $this->msg = $msg;
+        foreach ($args as $key => $value){
+            $this->$key = $value;
+        }
+    }
+
+    public static function instance($msg = null, $args = []) {
+        return new static($msg, $args);
+    }
 }

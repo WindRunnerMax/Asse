@@ -42,8 +42,7 @@ class Captcha {
         ob_start(); // 打开输出控制缓冲
         imagepng($this -> image); // 输出图像
         $content = ob_get_clean(); // 得到缓冲区内容并清空缓冲
-        return (new Response($content, 200, ["Content-Length" => strlen($content)]))
-            -> contentType("image/png");
+        return new Response($content, 200, ["Content-Length" => strlen($content), "Content-Type" => "image/png"]);
     }
 
     public function output($quality = 1) {
@@ -51,7 +50,7 @@ class Captcha {
         header("Cache-Control: post-check=0, pre-check=0", false);
         header("Pragma: no-cache");
         header("content-type: image/png");
-        imagepng($this->image,null,$quality);
+        imagepng($this->image, null, $quality);
     }
 
     public function getText() {

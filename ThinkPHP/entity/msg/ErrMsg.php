@@ -10,10 +10,8 @@ namespace entity\msg;
 
 class ErrMsg extends Msg {
 
-    public $msg = null;
-
-    public function __construct($msg = null) {
+    public function __construct($msg = null, $args = []) {
+        parent::__construct($msg, $args);
         $this->status = 0;
-        $this->msg = $msg;
     }
 }

@@ -40,7 +40,7 @@ class Redis {
         }
     }
 
-    //构造函数可能不起作用，则用这个初始化类 Redis::_initialize($config=[])
+    //构造函数可能不起作用，则用这个初始化类 Redis::_initialize($swConfig=[])
     public static function _initialize($config = []) {
         self::initRedis($config);
     }

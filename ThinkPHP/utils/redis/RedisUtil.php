@@ -6,6 +6,7 @@
  */
 namespace utils\redis;
 
+use config\RedisConfig;
 use system\dependencies\redis\Redis;
 
 class RedisUtil{
@@ -13,7 +14,7 @@ class RedisUtil{
     private function __construct(){}
 
     private static function connect(){
-        !Redis::checkRedisConn() && Redis::initRedis(["db" => 2]);
+        !Redis::checkRedisConn() && Redis::initRedis(RedisConfig::getConfig());
     }
 
     public static function set($key, $value, $expire = ""){

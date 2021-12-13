@@ -32,4 +32,15 @@ class M {
         return self::$instance[$modelClass] = $model;
     }
 
+    /**
+     * @param $modelClass
+     * @param string $alias
+     * @return String
+     * @description Loader Model
+     */
+    public static function joinAlias($modelClass, $alias=""){
+        $alias = $alias ? " ".$alias : "";
+        return self::L($modelClass) -> getTable() . $alias;
+    }
+
 }

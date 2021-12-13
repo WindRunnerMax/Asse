@@ -11,9 +11,7 @@ namespace entity\msg;
 class TackMsg extends Msg {
 
     public function __construct($status, $args = []) {
+        parent::__construct(null, $args);
         $this->status = $status;
-        foreach ($args as $key => $value){
-            $this->$key = $value;
-        }
     }
 }

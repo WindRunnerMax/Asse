@@ -9,7 +9,7 @@ namespace utils\params;
 
 
 class Audit {
-    
+
     /**
      * @param $str
      * @param $min

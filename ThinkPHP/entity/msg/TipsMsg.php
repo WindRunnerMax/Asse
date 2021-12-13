@@ -10,11 +10,9 @@ namespace entity\msg;
 
 class TipsMsg extends Msg {
 
-    public $msg = null;
-
-    public function __construct($msg) {
+    public function __construct($msg, $args = []) {
+        parent::__construct($msg, $args);
         $this->status = -1;
-        $this->msg = $msg;
     }
 
 }

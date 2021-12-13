@@ -1,0 +1,21 @@
+.card-container{
+    background-color: #fff;
+}
+
+.title-container{
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.title-vertical-line{
+    padding: 0 5px;
+    border-left: 2px solid;
+    margin: 3px;
+}
+
+.content{
+    padding:10px;
+}

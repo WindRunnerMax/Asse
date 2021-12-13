@@ -1,0 +1,47 @@
+.load-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+}
+.line {
+    width: 100px;
+    height: 1px;
+    background-color: #eee;
+}
+.status {
+    color: #aaa;
+    font-size: 13px;
+    padding: 5px;
+}
+.loader {
+    margin-left: 5px;
+    position: relative;
+    height: 12px;
+    width: 12px;
+    border-radius: 80px;
+    border: 1px solid #aaa;
+    transform-origin: 50% 50%;
+    animation: loader 1s linear infinite;
+}
+.loader:after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 7px;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.loader-hide{
+    display: none;
+}

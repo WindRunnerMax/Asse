@@ -16,8 +16,8 @@ class RegExp {
      * @return mixed
      */
     public static function match($pattern, $str) {
-        preg_match($pattern,$str,$result);
-        return $result;
+        preg_match($pattern, $str, $result);
+        return isset($result[1]) ? $result[1] : (isset($result[0]) ? $result[0] : "");
     }
 
     /**
@@ -26,8 +26,8 @@ class RegExp {
      * @return mixed
      */
     public static function matchAll($pattern, $str) {
-        preg_match_all($pattern,$str,$result);
-        return $result;
+        preg_match_all($pattern, $str, $result);
+        return isset($result[1]) ? $result[1] : (isset($result[0]) ? $result[0] : []);
     }
 
 }

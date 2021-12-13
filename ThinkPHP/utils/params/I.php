@@ -8,6 +8,8 @@
 namespace utils\params;
 
 
+use system\exception\ResponseError;
+
 class I {
 
     /**
@@ -52,8 +54,7 @@ class I {
         if(input(preg_replace("/\/[sdbaf]/i","","?$key"))){
             return input($key, $default, $filter);
         }else{
-            abort(json(["status" => 0,"msg" => "System Hint"],200));
-            return false;
+            throw new ResponseError(200, "Parameter Error");
         }
     }
 
@@ -68,8 +69,7 @@ class I {
         if(input(preg_replace("/\/[sdbaf]/i","","?get.$key"))){
             return input("get.$key", $default, $filter);
         }else{
-            abort(json(["status" => 0,"msg" => "System Hint"],200));
-            return false;
+            throw new ResponseError(200, "Parameter Error");
         }
     }
 
@@ -84,8 +84,7 @@ class I {
         if(input(preg_replace("/\/[sdbaf]/i","","?post.$key"))){
             return input("post.$key", $default, $filter);
         }else{
-            abort(json(["status" => 0,"msg" => "System Hint"],200));
-            return false;
+            throw new ResponseError(200, "Parameter Error");
         }
     }
 
