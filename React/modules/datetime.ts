@@ -33,7 +33,7 @@ export function safeDate(
         // 第一和第二个参数都为`Number`
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        return new Date(p1, p2, p3 || null, p4 || null, p5 || null, p6 || null, p7 || null);
+        return new Date(p1, p2, p3 || 1, p4 || 0, p5 || 0, p6 || 0, p7 || 0);
     } else if (typeof p1 === "string") {
         // 第一个参数为`String`
         return new Date(p1.replace(/-/g, "/"));
