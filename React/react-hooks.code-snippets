@@ -19,8 +19,8 @@
         "scope": "typescriptreact",
         "prefix": "react-hooks-view",
         "body": [
-            "import { FC, useState } from \"react\";",
             "import styles from \"./index.module.scss\";",
+            "import React, { FC, useState } from \"react\";",
             "",
             "const Component: FC<{",
             "    className?: string;",
@@ -41,8 +41,8 @@
         "scope": "typescriptreact",
         "prefix": "react-hooks-component",
         "body": [
-            "import { FC } from \"react\";",
             "import styles from \"./index.module.scss\";",
+            "import React, { FC } from \"react\";",
             "",
             "interface Props {",
 			"    name: string;",
