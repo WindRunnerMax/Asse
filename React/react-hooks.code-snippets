@@ -17,12 +17,12 @@
     // }
     "react-hooks-view": {
         "scope": "typescriptreact",
-        "prefix": "react-hooks-view",
+        "prefix": "react-hooks",
         "body": [
             "import styles from \"./index.module.scss\";",
             "import React, { FC, useState } from \"react\";",
             "",
-            "const Component: FC<{",
+            "export const Component: FC<{",
             "    className?: string;",
             "}> = props => {",
             "    return (",
@@ -32,32 +32,11 @@
             "    );",
             "};",
             "",
-        	"export default Component;",
+			"Component.defaultProps = {",
+            "    className: \"\",",
+            "};",
 			""
         ],
         "description": "react-hooks-view"
-    },
-	"react-hooks-component": {
-        "scope": "typescriptreact",
-        "prefix": "react-hooks-component",
-        "body": [
-            "import styles from \"./index.module.scss\";",
-            "import React, { FC } from \"react\";",
-            "",
-            "interface Props {",
-			"    name: string;",
-			"}",
-            "",
-            "const Component: FC<Props> = props => {",
-            "    return <div className={styles.example}>{props.name}</div>;",
-            "};",
-            "",
-			"Component.defaultProps = {};",
-			"",
-        	"export default Component;",
-			"",
-
-        ],
-        "description": "react-hooks-component"
     }
 }

@@ -4,9 +4,7 @@
 body{
 	margin: 0;
 	padding: 0;
-	font-family: Arial, Helvetica;
 	box-sizing: border-box;
-	font-size: 15px;
 	--color-blue: #4C98F7;
 	--color-green: #009688;
     --color-white: #FFFFFF;
